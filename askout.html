@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>askout</title>
+    <style>
+        .first-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 80px;
+            background-image: url('https://img.freepik.com/free-vector/puzzle-solving-question-mark-background-guidance-support_1017-43014.jpg?w=996&t=st=1709367126~exp=1709367726~hmac=e3bde866fca478ae8ae81ddb7065f7288b6ac71ddf9ca7377cfd81e2a3b26c43'); 
+            background-size: cover;
+            color: white;
+            text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        body:not(.first-page) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 80px;
+            color: white;
+            text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.5);
+            background-image: none; 
+        }
+        #container {
+            text-align: center;
+        }
+        #message {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #notification {
+            display: none;
+            color:white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="first-page">
+    <div id="container">
+        <div id="message">Hi harsh, would you like to go out on a date with me?</div>
+        <div id="buttons">
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
+        <div id="notification"></div>
+    </div>
+
+    <script>
+        const messageElement = document.getElementById('message');
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const notificationElement = document.getElementById('notification');
+
+        yesButton.addEventListener('click', () => {
+            messageElement.innerHTML = '<img src="https://media.tenor.com/ag6YQYcY1tIAAAAM/quby-dance.gif" >';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+            document.body.style.backgroundColor = '#F2ADA7'; // Hexadecimal code for peach
+
+            document.body.classList.remove('first-page');
+        });
+
+        noButton.addEventListener('click', () => {
+            notificationElement.textContent = 'If you change your mind click on me';
+            messageElement.innerHTML = '<img src="https://media.tenor.com/5iEotAx1LqkAAAAM/sad-guy-going-to-corner.gif" >';
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+            notificationElement.style.display = 'block';
+            document.body.style.backgroundColor = '#F2ADA7';
+            
+            document.body.classList.remove('first-page'); e
+        });
+
+        notificationElement.addEventListener('click', () => {
+            messageElement.innerHTML = 'Hi harsh, would you like to go out on a date with me?';
+            yesButton.style.display = 'block';
+            noButton.style.display = 'block';
+            notificationElement.style.display = 'none';
+            document.body.classList.add('first-page');
+            
+        });
+    </script>
+</body>
+</html>
+
